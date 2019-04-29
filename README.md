@@ -1,0 +1,2 @@
+# simplemvn
+simple maven example
