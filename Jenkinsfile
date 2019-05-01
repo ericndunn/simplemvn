@@ -1,9 +1,6 @@
 pipeline {
     agent { label 'MASTER' }
-        parameters {
-        choice(choices: ['inventory', 'inventorypm'], description: '', name: 'INV_FILE')
-        choice(choices: ['all', 'DEV', 'SIT', 'UATSEC', 'PERF', 'PREPROD', 'PROD', 'PRODA', 'PRODB'], description: '', name: 'INV_GRP')
-    }
+        
     stages {
         stage('Run Ansible Access operation'){
         
@@ -14,8 +11,8 @@ pipeline {
                     //sh 'ansible-playbook -i dev-servers site.yml'
                     ansiblePlaybook credentialsId: '62c93b86-c4ba-483c-a696-8180694ce559',
                     installation: 'ansible', 
-                    inventory: '/Users/ag19884/test/ansible_testing/roletest/${INV_FILE}',
-                    limit: '${INV_GRP}',
+                    inventory: '/Users/ag19884/test/ansible_testing/roletest/inventorypm',
+                    limit: 'DEV',
                     playbook: '/Users/ag19884/test/ansible_testing/roletest/server_access_status.yml',
                     colorized: true
                 }
