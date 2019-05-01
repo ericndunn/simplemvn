@@ -16,7 +16,7 @@ pipeline {
 
         stage ('Build') {
             steps {
-                sh 'mvn install' 
+                sh '/usr/local/bin/mvn install' 
             }
         }
     }
