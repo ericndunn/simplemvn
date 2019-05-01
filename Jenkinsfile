@@ -16,7 +16,8 @@ pipeline {
 
         stage ('Build') {
             steps {
-                sh '/usr/local/bin/mvn install' 
+                sh '/usr/local/bin/mvn install'
+                echo "This Job was built by Maven"
             }
         }
     }
