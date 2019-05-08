@@ -1,20 +1,11 @@
 pipeline {
     agent { label 'MASTER' }
     stages {
-        stage('ONE') {
+        stage('build') {
             steps {
-                sh 'env > env.txt' 
-				}
-            }
-        }
-        stage('TWO') {
-            steps {
-                sh '''
-                for (String i : readFile('env.txt').split("\r?\n")) {
-    		println i
-		}
-		'''
+                sh env > env.txt 
             }
         }
     }
+}
 
