@@ -5,6 +5,12 @@ pipeline {
         choice(choices: ['all', 'DEV', 'SIT', 'UATSEC', 'PERF', 'PREPROD', 'PROD', 'PRODA', 'PRODB'], description: '', name: 'INV_GRP')
     }
     stages {
+
+        stage('Test crap'){
+            steps {
+                echo 'Executing crap!!!'
+            }
+        }
         
         stage('API tests'){
             steps {
