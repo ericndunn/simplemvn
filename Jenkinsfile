@@ -6,8 +6,9 @@ pipeline {
                 sh 'env > env.txt'
             }
         }
-        stage('PROMOTION') {
+        stage('promotion') {
             steps {
+            sh '''
                 def userInput = input(
  				id: 'userInput', message: 'Let\'s promote?', parameters: [
  				[$class: 'TextParameterDefinition', defaultValue: 'uat', description: 'Environment', name: 'env'],
@@ -15,6 +16,7 @@ pipeline {
 				])
 				echo ("Env: "+userInput['env'])
 				echo ("Target: "+userInput['target'])
+				'''
             }
         }
     }
