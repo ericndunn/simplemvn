@@ -1,13 +1,12 @@
 def userInput = input(
     id: 'userInput', message: 'Let\'s promote?', parameters: [
     [$class: 'TextParameterDefinition', defaultValue: 'uat', description: 'Environment', name: 'env'],
-    [$class: 'TextParameterDefinition', defaultValue: 'uat1', description: 'Target', name: 'target']])
+    [$class: 'TextParameterDefinition', defaultValue: 'uat1', description: 'Target Environment', name: 'target']])
 
 pipeline {
     agent { label 'MASTER' }
         parameters {
-        choice(choices: ['inventory', 'inventorypm'], description: '', name: 'INV_FILE')
-        choice(choices: ['all', 'DEV', 'SIT', 'UATSEC', 'PERF', 'PREPROD', 'PROD', 'PRODA', 'PRODB'], description: '', name: 'INV_GRP')
+        choice(choices: ['all', 'DEV', 'DEV2', 'DEV3', 'SIT1', 'SIT2', 'UAT', 'UAT2', 'UAT3', 'PERF', 'SEC'], description: '', name: 'TARGET_ENVIRONMENT')
     }
     stages {
 
@@ -39,6 +38,4 @@ pipeline {
             }
         }
     }
-}    
-    
-
+}
