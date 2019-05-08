@@ -35,6 +35,4 @@ pipeline {
                 echo 'Clap if you liked the demo!'
             }
         }
-
     }
-}
