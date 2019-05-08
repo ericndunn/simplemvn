@@ -22,7 +22,7 @@ pipeline {
             steps {
                 echo 'Executing API tests... ya right!!!'
                 echo ("Env Blah1: "+userInput['env'])
-                echo ("TARGET_ENVIRONMENT: "+['TARGET_ENVIRONMENT'])
+                echo ("TARGET_ENVIRONMENT: "${TARGET_ENVIRONMENT})
             }
         }
 
