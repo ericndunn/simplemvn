@@ -27,6 +27,7 @@ pipeline {
                 println i
               }
             }
+        } 
         }
     }
 }
