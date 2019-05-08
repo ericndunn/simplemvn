@@ -16,6 +16,4 @@ pipeline {
                 sh 'ls -la' 
             }
         }
-
     }
-}
