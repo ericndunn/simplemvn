@@ -5,19 +5,7 @@ pipeline {
         choice(choices: ['all', 'DEV', 'SIT', 'UATSEC', 'PERF', 'PREPROD', 'PROD', 'PRODA', 'PRODB'], description: '', name: 'INV_GRP')
     }
     stages {
-        stage('Test this crap'){
         
-            steps {
-                def userInput = input(
-                 id: 'userInput', message: 'Let\'s promote?', parameters: [
-                 [$class: 'TextParameterDefinition', defaultValue: 'uat', description: 'Environment', name: 'env'],
-                 [$class: 'TextParameterDefinition', defaultValue: 'uat1', description: 'Target', name: 'target']
-                ])
-                echo ("Env: "+userInput['env'])
-                echo ("Target: "+userInput['target'])
-                }
-            }
-        }
         stage('API tests'){
             steps {
                 echo 'Executing API tests... ya right!!!'
