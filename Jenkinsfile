@@ -1,29 +1,26 @@
 def userInput = input(
     id: 'userInput', message: 'Let\'s promote?', parameters: [
-    [$class: 'TextParameterDefinition', defaultValue: 'uat', description: 'Environment', name: 'env'],
-    [$class: 'TextParameterDefinition', defaultValue: 'uat1', description: 'Target', name: 'target']])
+    [$class: 'TextParameterDefinition', defaultValue: '${ENVIRONMENT}', description: 'TARGET_ENVIRONMENT', name: 'TARGET_ENVIRONMENT'])
 
 pipeline {
     agent { label 'MASTER' }
         parameters {
-        choice(choices: ['inventory', 'inventorypm'], description: '', name: 'INV_FILE')
-        choice(choices: ['all', 'DEV', 'SIT', 'UATSEC', 'PERF', 'PREPROD', 'PROD', 'PRODA', 'PRODB'], description: '', name: 'INV_GRP')
+        choice(choices: ['DEV', 'DEV2', 'DEV3', 'SIT1', 'SIT2', 'UAT', 'UAT2', 'UAT3', 'PERF', 'SEC'], description: 'ENVIRONMENT', name: 'ENVIRONMENT')
     }
     stages {
 
         stage('Test crap'){
 
             steps {
-                echo ("Env: "+userInput['env'])
-                echo ("Target: "+userInput['target'])
+                echo ("Target: "+userInput['TARGET_ENVIRONMENT'])
             }
         }
         
         stage('API tests'){
             steps {
                 echo 'Executing API tests... ya right!!!'
-                echo ("Env Blah1: "+userInput['env'])
-                echo ("Target Blah2: "+userInput['target'])
+
+                echo ("Target Blah2: "+userInput['TARGET_ENVIRONMENT'])
             }
         }
 
@@ -39,5 +36,6 @@ pipeline {
             }
         }
     }
-}    
+}
+    
     
