@@ -6,7 +6,7 @@ def userInput = input(
 pipeline {
     agent { label 'MASTER' }
         parameters {
-        choice(choices: ['all', 'DEV', 'DEV2', 'DEV3', 'SIT1', 'SIT2', 'UAT', 'UAT2', 'UAT3', 'PERF', 'SEC'], description: '', name: 'TARGET_ENVIRONMENT')
+        choice(choices: ['DEV', 'DEV2', 'DEV3', 'SIT1', 'SIT2', 'UAT', 'UAT2', 'UAT3', 'PERF', 'SEC'], description: '', name: 'TARGET_ENVIRONMENT')
     }
     stages {
 
@@ -22,7 +22,7 @@ pipeline {
             steps {
                 echo 'Executing API tests... ya right!!!'
                 echo ("Env Blah1: "+userInput['env'])
-                echo ("Target Blah2: "+userInput['target'])
+                echo ("TARGET_ENVIRONMENT: "+['TARGET_ENVIRONMENT'])
             }
         }
 
