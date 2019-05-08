@@ -10,10 +10,4 @@ pipeline {
             echo ("Env: "+userInput['env'])
             echo ("Target: "+userInput['target'])
         }
-
-        stage ('Build') {
-            steps {
-                sh 'ls -la' 
-            }
-        }
     }
