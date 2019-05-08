@@ -1,7 +1,7 @@
 def userInput = input(
     id: 'userInput', message: 'Let\'s promote?', parameters: [
     [$class: 'TextParameterDefinition', defaultValue: 'uat', description: 'Environment', name: 'env'],
-    [$class: 'TextParameterDefinition', defaultValue: 'uat1', description: 'Target Environment', name: 'target']])
+    [$class: 'TextParameterDefinition', defaultValue: "${TARGET_ENVIRONMENT}", description: 'Target Environment', name: 'target']])
 
 pipeline {
     agent { label 'MASTER' }
