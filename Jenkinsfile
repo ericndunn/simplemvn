@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                sh env > env.txt 
+                sh 'env > env.txt'
             }
         }
     }
