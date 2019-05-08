@@ -1,18 +1,9 @@
 pipeline {
-    agent any
+    agent { label 'MASTER' }
     stages {
-          stage ('Initialize') {
+        stage('build') {
             steps {
-                sh '''
-                   env > env.txt
-                   #for (String i : readFile('env.txt').split("\r?\n")) {
-                   #println i
-                ''' 
-            #}
-        }
-        stage ('Build') {
-            steps {
-                sh '/usr/local/bin/mvn verify' 
+                echo "Hello World!"
             }
         }
     }
