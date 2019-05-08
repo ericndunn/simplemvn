@@ -5,11 +5,12 @@ pipeline {
         //jdk 'jdk8' 
     //}
     stages {
-        stage ('Initialize') {
+          stage ('Initialize') {
             steps {
                 sh '''
-                    echo "PATH = ${PATH}"
-                    echo "M2_HOME = ${M2_HOME}"
+                   env > env.txt
+                   for (String i : readFile('env.txt').split("\r?\n")) {
+                   println i
                 ''' 
             }
         }
