@@ -3,9 +3,14 @@ def userInput = input(
     [$class: 'TextParameterDefinition', defaultValue: 'uat', description: 'Environment', name: 'env'],
     [$class: 'TextParameterDefinition', defaultValue: "${TARGET_ENVIRONMENT}", description: 'Target Environment', name: 'target']])
 
+def withCredentials([string(credentialsId: 'SECRETTEXT', variable: 'secrettext')]) {
+    }  
+
 pipeline {
     agent { label 'MASTER' }
-         withCredentials([string(credentialsId: 'SECRETTEXT', variable: 'secrettext')]) {
+        
+
+        
         parameters {
         choice(choices: ['DEV', 'DEV2', 'DEV3', 'SIT1', 'SIT2', 'UAT', 'UAT2', 'UAT3', 'PERF', 'SEC'], description: '', name: 'TARGET_ENVIRONMENT')
 
@@ -20,7 +25,7 @@ pipeline {
         password(name: 'PASSWORD', defaultValue: "${secrettext}", description: 'Enter a password')
 
         file(name: "FILE", description: "Choose a file to upload")
-        }     
+   
             
     }
     stages {
