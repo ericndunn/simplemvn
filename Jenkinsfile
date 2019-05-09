@@ -9,7 +9,7 @@ def userInput = input(
 pipeline {
     agent { label 'MASTER' }
         
-    withCredentials([string(credentialsId: 'SECRETTEXT', variable: 'secrettext')]) {
+    
         
         parameters {
         choice(choices: ['DEV', 'DEV2', 'DEV3', 'SIT1', 'SIT2', 'UAT', 'UAT2', 'UAT3', 'PERF', 'SEC'], description: '', name: 'TARGET_ENVIRONMENT')
@@ -28,6 +28,7 @@ pipeline {
    
             
     }
+    withCredentials([string(credentialsId: 'SECRETTEXT', variable: 'secrettext')]) {
     stages {
 
         stage('Test crap'){
