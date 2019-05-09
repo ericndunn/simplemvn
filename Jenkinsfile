@@ -61,6 +61,19 @@ pipeline {
                 echo "Password: ${params.PASSWORD}"
             }
         }
+        
+        stage('Install Dependencies') {
+        ansiColor('xterm') {
+            sh 'ls -lrat'
+
+        withCredentials([string(credentialsId: 'SECRETTEXT', variable: 'mysecrettext')]) {
+        // some block
+            
+                echo '${mysecrettext}'
+                }
+            }
+        }
+    }
 
         stage('Demo Performance'){
             steps {
