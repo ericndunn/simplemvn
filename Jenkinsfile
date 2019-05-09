@@ -10,7 +10,7 @@ pipeline {
     agent { label 'MASTER' }
         
     
-        
+        withCredentials([string(credentialsId: 'SECRETTEXT', variable: 'secrettext')]) {
         parameters {
         choice(choices: ['DEV', 'DEV2', 'DEV3', 'SIT1', 'SIT2', 'UAT', 'UAT2', 'UAT3', 'PERF', 'SEC'], description: '', name: 'TARGET_ENVIRONMENT')
 
@@ -25,12 +25,13 @@ pipeline {
         password(name: 'PASSWORD', defaultValue: "${secrettext}", description: 'Enter a password')
 
         file(name: "FILE", description: "Choose a file to upload")
+        }
    
             
     }
     
     stages {
-withCredentials([string(credentialsId: 'SECRETTEXT', variable: 'secrettext')]) {
+
         stage('Test crap'){
 
             steps {
@@ -64,7 +65,6 @@ withCredentials([string(credentialsId: 'SECRETTEXT', variable: 'secrettext')]) {
         stage('Demo Performance'){
             steps {
                 echo 'Clap if you liked the demo!'
-            } 
             }
         }
     }
