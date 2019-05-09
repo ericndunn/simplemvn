@@ -63,17 +63,14 @@ pipeline {
         }
         
         stage('Install Dependencies') {
+            steps {
         ansiColor('xterm') {
             sh 'ls -lrat'
+               }
 
-        withCredentials([string(credentialsId: 'SECRETTEXT', variable: 'mysecrettext')]) {
-        // some block
-            
-                echo '${mysecrettext}'
-                }
             }
         }
-    }
+    
 
         stage('Demo Performance'){
             steps {
@@ -81,4 +78,5 @@ pipeline {
             }
         }
     }
+}    
 
