@@ -28,9 +28,9 @@ pipeline {
    
             
     }
-    withCredentials([string(credentialsId: 'SECRETTEXT', variable: 'secrettext')]) {
+    
     stages {
-
+withCredentials([string(credentialsId: 'SECRETTEXT', variable: 'secrettext')]) {
         stage('Test crap'){
 
             steps {
