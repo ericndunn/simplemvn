@@ -5,6 +5,7 @@ def userInput = input(
 
 pipeline {
     agent { label 'MASTER' }
+         withCredentials([string(credentialsId: 'SECRETTEXT', variable: 'secrettext')]) {
         parameters {
         choice(choices: ['DEV', 'DEV2', 'DEV3', 'SIT1', 'SIT2', 'UAT', 'UAT2', 'UAT3', 'PERF', 'SEC'], description: '', name: 'TARGET_ENVIRONMENT')
 
@@ -16,11 +17,10 @@ pipeline {
 
         choice(name: 'CHOICE', choices: ['One', 'Two', 'Three'], description: 'Pick something')
             
-         withCredentials([string(credentialsId: 'SECRETTEXT', variable: 'secrettext')]) {
-         password(name: 'PASSWORD', defaultValue: "${secrettext}", description: 'Enter a password')
-         } 
+        password(name: 'PASSWORD', defaultValue: "${secrettext}", description: 'Enter a password')
 
         file(name: "FILE", description: "Choose a file to upload")
+        }     
             
     }
     stages {
