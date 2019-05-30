@@ -24,7 +24,7 @@ pipeline {
         stage('Git source files') {
             steps {
 
-                git url: 'ssh://bitbucket.anthem.com:7999/madt/medicaid-ui.git', branch: 'release/Bespin', credentialsId: '62c93b86-c4ba-483c-a696-8180694ce559'
+                git url: 'ssh://bitbucket.anthem.com:7999/madt/medicaid-ui.git', credentialsId: '62c93b86-c4ba-483c-a696-8180694ce559'
                 
                 echo "Hello ${params.TARGET_ENVIRONMENT}"
 
