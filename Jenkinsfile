@@ -32,21 +32,21 @@ pipeline {
     
     stages {
 
-        stage('Test crap'){
+        /*stage('Test crap'){
 
             steps {
                 echo ("Env: "+userInput['env'])
                 echo ("Target: "+userInput['target'])
             }
-        }
+        */}
         
-        stage('API tests'){
+        /*stage('API tests'){
             steps {
                 echo 'Executing API tests... ya right!!!'
                 echo ("Env Blah1: "+userInput['env'])
                 echo ("TARGET_ENVIRONMENT: "+"${TARGET_ENVIRONMENT}")
             }
-        }
+        */}
 
         stage('Example') {
             steps {
