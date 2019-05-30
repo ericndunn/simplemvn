@@ -8,9 +8,6 @@ pipeline {
     //id: 'userInput', message: 'Let\'s promote?', parameters: [
     //[$class: 'TextParameterDefinition', defaultValue: 'uat', description: 'Environment', name: 'env'],
     //[$class: 'TextParameterDefinition', defaultValue: "${TARGET_ENVIRONMENT}", description: 'Target Environment', name: 'target']])
-
-pipeline {
-    agent { label 'MASTER' }
         
         parameters {
         choice(choices: ['PROD', 'UAT2'], description: '', name: 'TARGET_ENVIRONMENT')
