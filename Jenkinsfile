@@ -1,6 +1,6 @@
-def userInput = input(
-    id: 'userInput', message: 'Let\'s promote?', parameters: [
-    [$class: 'TextParameterDefinition', defaultValue: 'uat', description: 'Environment', name: 'env'],
+//def userInput = input(
+    //id: 'userInput', message: 'Let\'s promote?', parameters: [
+    //[$class: 'TextParameterDefinition', defaultValue: 'uat', description: 'Environment', name: 'env'],
     //[$class: 'TextParameterDefinition', defaultValue: "${TARGET_ENVIRONMENT}", description: 'Target Environment', name: 'target']])
 
 
