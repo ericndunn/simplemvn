@@ -28,15 +28,14 @@ pipeline {
 
         stage('Example') {
             steps {
-                echo "Hello ${params.PERSON}"
+                git branch: 'release/Bespin', credentialsId: '62c93b86-c4ba-483c-a696-8180694ce559', poll: false, url: 'ssh://bitbucket.anthem.com:7999/madt/medicaid-ui.git'
+                
+                echo "Hello ${params.TARGET_ENVIRONMENT}"
 
-                echo "Biography: ${params.BIOGRAPHY}"
+                echo "Biography: ${params.BRAND}"
 
-                echo "Toggle: ${params.TOGGLE}"
+                echo "Toggle: ${params.CUR_VER}"
 
-                echo "Choice: ${params.CHOICE}"
-
-                echo "Password: ${params.PASSWORD}"
             }
         }
         
