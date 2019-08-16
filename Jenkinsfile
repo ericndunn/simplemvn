@@ -17,7 +17,6 @@ pipeline {
                 echo 'Deploying....'
             }
         }
-    }
 
 /*node {
     def os = System.properties['os.name'].toLowerCase()
