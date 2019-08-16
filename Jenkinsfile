@@ -26,7 +26,6 @@ pipeline {
             }
         }
     }
-}
 
 /*node {
     def os = System.properties['os.name'].toLowerCase()
