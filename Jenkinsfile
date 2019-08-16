@@ -5,6 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
+                bat "mvn install"
             }
         }
         stage('Test') {
@@ -17,6 +18,8 @@ pipeline {
                 echo 'Deploying....'
             }
         }
+    }
+}
 
 /*node {
     def os = System.properties['os.name'].toLowerCase()
